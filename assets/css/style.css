@@ -1,0 +1,326 @@
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap");
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* Force scrollbar */
+html {
+  overflow-y: scroll;
+}
+
+/* Align radios and text inputs with their label */
+
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+/* Hand cursor on clickable input elements */
+label,
+input[type="button"],
+input[type="submit"],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup {
+  top: -0.7em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after {
+  clear: both;
+}
+.cf {
+  zoom: 1;
+}
+
+/*for all*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+:root {
+  --primary-font: #fec96b;
+  --secondary-font: #fff;
+  --primary-bg: #34343b;
+  --secondary-bg: #30323b;
+}
+
+/*=================================
+  Header styling starts here
+=================================*/
+.header {
+  width: 100%;
+  padding: 20px 5rem;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo > a {
+  color: var(--primary-font);
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.navbar > ul {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.navbar a {
+  color: var(--secondary-font);
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-font);
+}
+
+/*=================================
+  Header styling ends here
+=================================*/
+
+/*=================================
+  main styling starts here
+=================================*/
+/**********************************************
+  Header styling starts here
+************************************************/
+.banner-section {
+  width: 100%;
+  height: 80vh;
+  padding: 0 10rem;
+  position: relative;
+  background-color: var(--primary-bg);
+}
+
+.banner-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.info-desc {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+  color: var(--secondary-font);
+}
+
+.name {
+  font-size: 2rem;
+  color: var(--primary-font);
+}
+
+.contact-btn {
+  padding: 10px 1rem;
+  border: 2px solid var(--primary-font);
+  border-radius: 6px;
+  margin-top: 20px;
+  color: var(--primary-font);
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: var(--primary-font);
+  color: var(--secondary-font);
+}
+
+.banner-right {
+  width: 35%;
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+}
+
+.banner-right > img {
+  width: 100%;
+  object-fit: cover;
+}
+/**********************************************
+  Header styling ends here
+************************************************/
+
+/*=================================
+  main styling ends here
+=================================*/
+
+/*=================================
+  footer styling starts here
+=================================*/
+
+/*=================================
+  footer styling ends here
+=================================*/
+
+/*media query starts*/
+/*media query for 995px starts here*/
+@media only screen and (max-width: 995px) {
+}
