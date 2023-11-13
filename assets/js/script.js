@@ -2,6 +2,7 @@ const hamburger = document.querySelector(".hamburger");
 const navContainer = document.querySelector(".navbar");
 const navLink = document.querySelectorAll(".navbar a");
 const html = document.querySelector("html");
+const header = document.querySelector(".header");
 
 /************************************ Hamburger logic ***********************************************/
 //add active
@@ -20,7 +21,20 @@ navLink.forEach(e => {
   })
 });
 
-/************************************ Form logic ***********************************************/
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-});
+/************************************ scroll logic ***********************************************/
+var specificPixel = 80;
+
+// Function to be called when the user scrolls to the specific pixel
+function handleScroll() {
+  var scrollPosition = window.scrollY || window.pageYOffset;
+
+  if (scrollPosition >= specificPixel) {
+    console.log('Scrolled to the specific pixel!');
+    header.classList.add("fixed-header");
+  } else {
+    header.classList.remove("fixed-header");
+  }
+}
+
+// Attach the 'handleScroll' function to the 'onscroll' event
+window.onscroll = handleScroll;

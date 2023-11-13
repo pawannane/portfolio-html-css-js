@@ -221,12 +221,17 @@ body {
 .header {
   width: 100%;
   padding: 20px 5rem;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: var(--black); */
+  transition: all 0.3s ease;
+}
+
+.fixed-header {
+  position: fixed;
+  background-color: var(--black);
 }
 
 .logo > a {
