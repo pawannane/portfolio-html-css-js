@@ -117,6 +117,7 @@ section {
 /* Force scrollbar */
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 /* Align radios and text inputs with their label */
@@ -204,6 +205,8 @@ li {
   --secondary-font: #fff;
   --primary-bg: #34343b;
   --secondary-bg: #30323b;
+  --black: #222;
+  --card: #505050;
 }
 
 /*=================================
@@ -223,6 +226,11 @@ li {
   color: var(--primary-font);
   font-size: 2rem;
   text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+.logo > a:hover {
+  color: var(--secondary-font);
 }
 
 .navbar > ul {
@@ -231,13 +239,34 @@ li {
 }
 
 .navbar a {
+  border-bottom: 2px solid transparent;
   color: var(--secondary-font);
   font-size: 1.25rem;
   text-transform: capitalize;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .navbar a:hover {
+  color: var(--primary-font);
+}
+
+/* Define the pseudo-element for creating the expanding border */
+.navbar a::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  position: absolute;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: center bottom;
+}
+
+/* Define the styles for the link on hover */
+.navbar a:hover::before {
+  transform: scaleX(1);
+  border-color: var(--primary-font);
   color: var(--primary-font);
 }
 
@@ -257,6 +286,7 @@ li {
   padding: 0 10rem;
   position: relative;
   background-color: var(--primary-bg);
+  box-shadow: 0 4px 4px var(--black);
 }
 
 .banner-container {
@@ -308,6 +338,225 @@ li {
   Header styling ends here
 ************************************************/
 
+/***********************************************
+  about section styling starts here
+***********************************************/
+.about-section {
+  background-color: var(--secondary-bg);
+  padding: 80px 0;
+}
+
+.about-container {
+  padding: 0 10rem;
+}
+
+.heading {
+  margin-bottom: 20px;
+  color: var(--secondary-font);
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.info {
+  color: var(--secondary-font);
+  font-size: 1.2rem;
+}
+/***********************************************
+  about section styling ends here
+***********************************************/
+
+/***********************************************
+  skills section styling starts here
+***********************************************/
+.skills-section {
+  background-color: var(--secondary-bg);
+  color: var(--secondary-font);
+  padding: 80px 0;
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-container h2 {
+  text-align: center;
+}
+
+.skills-container ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.skills-container li {
+  padding: 50px 4rem;
+  border-radius: 10px;
+  background-color: var(--card);
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.skills-container li:hover {
+  background-color: var(--primary-font);
+}
+
+.skills-container img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.img-container {
+  display: flex;
+}
+
+.skills-container span {
+  margin-top: 10px;
+  display: block;
+  text-transform: capitalize;
+}
+/***********************************************
+  skills section styling ends here
+***********************************************/
+
+/***********************************************
+  portfolio section styling starts here
+***********************************************/
+.portfolio-section {
+  padding: 80px 0;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-font);
+}
+
+.portfolio-container {
+  padding: 0 10rem;
+}
+
+.portfolio-container h2 {
+  text-align: center;
+}
+
+.portfolio-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.portfolio-list li {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 5%;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.portfolio-list img {
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.portfolio-list span {
+  margin: 10px 0;
+  display: block;
+  color: var(--secondary-font);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.portfolio-list p {
+  color: var(--secondary-font);
+  font-size: 0.75rem;
+}
+
+.btn-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.more-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--primary-font);
+  border-radius: 5px;
+  display: inline-block;
+  background-color: var(--primary-font);
+  color: var(--black);
+  font-size: 1.25rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+
+.more-btn:hover {
+  background-color: transparent;
+  color: var(--primary-font);
+}
+/***********************************************
+  portfolio section styling ends here
+***********************************************/
+
+/***********************************************
+  experience section styling starts here
+***********************************************/
+.experience-section {
+  padding: 80px 0;
+}
+
+.experince-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experince-container h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.experience-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-inner {
+  width: 48%;
+}
+
+.experience-inner h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.experience-inner span {
+  display: block;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.experience-inner .year {
+  font-weight: bold;
+}
+
+.experience-inner .info {
+  color: #777;
+}
+/***********************************************
+  experience section styling ends here
+***********************************************/
 /*=================================
   main styling ends here
 =================================*/
@@ -315,7 +564,56 @@ li {
 /*=================================
   footer styling starts here
 =================================*/
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+}
 
+.footer-container-top {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container-top h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-one {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.mail,
+.phone {
+  color: #fff;
+  text-decoration: none;
+}
+
+.address {
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.footer-container-bottom {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.footer-container-bottom li {
+  margin: 0 10px;
+}
+
+.footer-container-bottom a {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-transform: capitalize;
+}
 /*=================================
   footer styling ends here
 =================================*/
