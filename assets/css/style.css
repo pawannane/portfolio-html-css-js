@@ -203,10 +203,16 @@ li {
 :root {
   --primary-font: #fec96b;
   --secondary-font: #fff;
+  --gray: #c0c0c0;
   --primary-bg: #34343b;
   --secondary-bg: #30323b;
+  --semi-black: #333;
   --black: #222;
   --card: #505050;
+}
+
+body {
+  background-color: var(--primary-bg);
 }
 
 /*=================================
@@ -282,7 +288,7 @@ li {
 ************************************************/
 .banner-section {
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   padding: 0 10rem;
   position: relative;
   background-color: var(--primary-bg);
@@ -448,27 +454,34 @@ li {
 .portfolio-list li {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .project {
   position: absolute;
   z-index: 1;
-  top: 50%;
+  top: 40%;
   left: 5%;
   text-align: center;
-  transition: opacity 0.3s ease;
-  opacity: 0;
+  transition: transform 0.3s ease;
+  transform: translateY(325%);
+}
+
+.portfolio-list li:hover img {
+  opacity: 0.5;
+}
+
+.portfolio-list li:hover .project {
+  transform: translateY(0);
 }
 
 .portfolio-list img {
   height: 100%;
   border-radius: 8px;
   object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
 .portfolio-list span {
-  margin: 10px 0;
   display: block;
   color: var(--secondary-font);
   font-size: 1.5rem;
@@ -477,8 +490,33 @@ li {
 }
 
 .portfolio-list p {
+  margin: 10px 0;
   color: var(--secondary-font);
   font-size: 0.75rem;
+}
+
+.see-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--primary-font);
+  border-radius: 5px;
+  background-color: var(--primary-font);
+  color: var(--black);
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+
+.see-btn::after {
+  content: "\f061";
+  margin-left: 0.25rem;
+  font-family: "FontAwesome";
+}
+
+.see-btn:hover {
+  background-color: transparent;
+  color: var(--primary-font);
+  transition: all 0.3s ease;
 }
 
 .btn-container {
@@ -491,11 +529,9 @@ li {
   padding: 10px 20px;
   border: 1px solid var(--primary-font);
   border-radius: 5px;
-  display: inline-block;
   background-color: var(--primary-font);
   color: var(--black);
   font-size: 1.25rem;
-  text-decoration: none;
   text-transform: capitalize;
   transition: all 0.3s ease;
 }
@@ -513,46 +549,79 @@ li {
 ***********************************************/
 .experience-section {
   padding: 80px 0;
+  position: relative;
+  background-color: var(--primary-bg);
+  color: var(--secondary-font);
 }
 
 .experince-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 0 10rem;
 }
 
-.experince-container h2 {
-  color: #333;
-  font-size: 2rem;
-  margin-bottom: 20px;
+.experince-container .heading {
+  position: absolute;
+  top: -35px;
 }
 
 .experience-list {
-  display: flex;
-  justify-content: space-between;
+  padding: 0 10rem;
 }
 
 .experience-inner {
-  width: 48%;
+  position: relative;
+  margin-bottom: 30px;
 }
 
-.experience-inner h3 {
-  color: #333;
-  font-size: 1.5rem;
+.experience-inner:last-child {
+  margin-bottom: 0;
+}
+
+.position {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
 }
 
-.experience-inner span {
-  display: block;
-  color: #555;
-  margin-bottom: 5px;
+.position::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: -5%;
+  background-color: var(--primary-font);
+  box-shadow: 0 0 20px 5px var(--primary-font);
 }
 
-.experience-inner .year {
-  font-weight: bold;
+.company {
+  font-size: 1.5rem;
+}
+
+.year {
+  padding: 5px 0.5rem;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -15%;
+  background-color: var(--card);
+}
+
+.year::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+  background-color: var(--card);
+  transform: translateX(-5%) rotate(45deg);
 }
 
 .experience-inner .info {
-  color: #777;
+  margin-top: 10px;
+  color: var(--gray);
 }
 /***********************************************
   experience section styling ends here
@@ -565,54 +634,120 @@ li {
   footer styling starts here
 =================================*/
 .footer {
-  background-color: #333;
-  color: #fff;
-  padding: 50px 0;
+  padding: 50px 10rem;
+  border: 3px solid var(--primary-font);
+  border-left: none;
+  border-right: none;
+  margin-bottom: 50px;
+  position: relative;
+  background-color: var(--semi-black);
+  color: var(--secondary-font);
+}
+
+.footer .heading {
+  padding: 0 1rem;
+  position: absolute;
+  z-index: 1;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(26px);
 }
 
 .footer-container-top {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-container-top h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.contact-one {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .mail,
-.phone {
-  color: #fff;
-  text-decoration: none;
+.phone,
+.address {
+  padding: 20px 6.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  color: var(--primary-font);
+  background-color: var(--black);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
-.address {
-  color: #aaa;
-  margin-top: 10px;
+.mail:hover,
+.phone:hover,
+.address:hover {
+  color: var(--secondary-font);
+}
+
+.mail::before {
+  content: "\f0e0";
+}
+
+.phone::before {
+  content: "\f095";
+}
+
+.address::before {
+  content: "\f3c5";
+}
+
+.mail::before,
+.phone::before,
+.address::before {
+  margin-right: 1rem;
+  color: var(--secondary-font);
+  font-family: "FontAwesome";
 }
 
 .footer-container-bottom {
-  list-style: none;
+  padding: 0 1rem;
+  margin-top: 20px;
+  position: absolute;
+  z-index: 1;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-}
-
-.footer-container-bottom li {
-  margin: 0 10px;
+  gap: 25px;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
 }
 
 .footer-container-bottom a {
-  color: #fff;
+  color: var(--secondary-font);
+  font-size: 0;
+  transition: color 0.3s ease;
+}
+
+.footer-container-bottom a:hover {
+  color: var(--primary-font);
+}
+
+.facebook::before {
+  content: "\f09a";
+}
+
+.x::before {
+  content: "\e61b";
+}
+
+.linkedin::before {
+  content: "\f0e1";
+}
+
+.whatsapp::before {
+  content: "\f232";
+}
+
+.facebook::before,
+.x::before,
+.linkedin::before,
+.whatsapp::before {
+  font-family: "FontAwesome";
   font-size: 1.5rem;
-  text-decoration: none;
-  text-transform: capitalize;
 }
 /*=================================
   footer styling ends here
