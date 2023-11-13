@@ -221,11 +221,12 @@ body {
 .header {
   width: 100%;
   padding: 20px 5rem;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* background-color: var(--black); */
 }
 
 .logo > a {
@@ -233,10 +234,6 @@ body {
   font-size: 2rem;
   text-transform: capitalize;
   transition: color 0.3s ease;
-}
-
-.logo > a:hover {
-  color: var(--secondary-font);
 }
 
 .navbar > ul {
@@ -253,10 +250,6 @@ body {
   position: relative;
 }
 
-.navbar a:hover {
-  color: var(--primary-font);
-}
-
 /* Define the pseudo-element for creating the expanding border */
 .navbar a::before {
   content: "";
@@ -269,13 +262,24 @@ body {
   transform-origin: center bottom;
 }
 
-/* Define the styles for the link on hover */
-.navbar a:hover::before {
-  transform: scaleX(1);
-  border-color: var(--primary-font);
-  color: var(--primary-font);
+.hamburger {
+  display: none;
+  cursor: pointer;
 }
 
+.bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px 0.5%;
+  display: block;
+  background-color: var(--secondary-font);
+  text-indent: -9999px;
+  transition: all 0.3s ease;
+}
+
+.html-scroll {
+  overflow-y: hidden;
+}
 /*=================================
   Header styling ends here
 =================================*/
@@ -322,11 +326,6 @@ body {
   font-size: 1.5rem;
   text-transform: capitalize;
   transition: all 0.3s ease;
-}
-
-.contact-btn:hover {
-  background-color: var(--primary-font);
-  color: var(--secondary-font);
 }
 
 .banner-right {
@@ -378,12 +377,7 @@ body {
 .skills-section {
   background-color: var(--secondary-bg);
   color: var(--secondary-font);
-  padding: 80px 0;
-}
-
-.skills-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 80px 10rem;
 }
 
 .skills-container h2 {
@@ -405,10 +399,6 @@ body {
   cursor: pointer;
 }
 
-.skills-container li:hover {
-  background-color: var(--primary-font);
-}
-
 .skills-container img {
   width: 80px;
   height: 80px;
@@ -417,6 +407,7 @@ body {
 
 .img-container {
   display: flex;
+  justify-content: center;
 }
 
 .skills-container span {
@@ -449,6 +440,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  cursor: pointer;
 }
 
 .portfolio-list li {
@@ -464,14 +456,6 @@ body {
   text-align: center;
   transition: transform 0.3s ease;
   transform: translateY(325%);
-}
-
-.portfolio-list li:hover img {
-  opacity: 0.5;
-}
-
-.portfolio-list li:hover .project {
-  transform: translateY(0);
 }
 
 .portfolio-list img {
@@ -513,12 +497,6 @@ body {
   font-family: "FontAwesome";
 }
 
-.see-btn:hover {
-  background-color: transparent;
-  color: var(--primary-font);
-  transition: all 0.3s ease;
-}
-
 .btn-container {
   margin-top: 30px;
   display: flex;
@@ -536,10 +514,6 @@ body {
   transition: all 0.3s ease;
 }
 
-.more-btn:hover {
-  background-color: transparent;
-  color: var(--primary-font);
-}
 /***********************************************
   portfolio section styling ends here
 ***********************************************/
@@ -581,18 +555,6 @@ body {
   display: flex;
   align-items: center;
   font-size: 1.75rem;
-}
-
-.position::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  position: absolute;
-  left: -5%;
-  background-color: var(--primary-font);
-  box-shadow: 0 0 20px 5px var(--primary-font);
 }
 
 .company {
@@ -675,12 +637,6 @@ body {
   cursor: pointer;
 }
 
-.mail:hover,
-.phone:hover,
-.address:hover {
-  color: var(--secondary-font);
-}
-
 .mail::before {
   content: "\f0e0";
 }
@@ -722,10 +678,6 @@ body {
   transition: color 0.3s ease;
 }
 
-.footer-container-bottom a:hover {
-  color: var(--primary-font);
-}
-
 .facebook::before {
   content: "\f09a";
 }
@@ -754,6 +706,200 @@ body {
 =================================*/
 
 /*media query starts*/
-/*media query for 995px starts here*/
+/*media query For 995px (HOVER EFFECT)*/
+@media only screen and (min-width: 995px) {
+  /* FOR HOVER EFFECT */
+  .logo > a:hover {
+    color: var(--secondary-font);
+  }
+
+  .navbar a:hover {
+    color: var(--primary-font);
+  }
+
+  /* Define the styles for the link on hover */
+  .navbar a:hover::before {
+    transform: scaleX(1);
+    border-color: var(--primary-font);
+    color: var(--primary-font);
+  }
+
+  .contact-btn:hover {
+    background-color: var(--primary-font);
+    color: var(--secondary-font);
+  }
+
+  .skills-container li:hover {
+    background-color: var(--primary-font);
+  }
+
+  .portfolio-list li:hover img {
+    opacity: 0.5;
+  }
+
+  .portfolio-list li:hover .project {
+    transform: translateY(0);
+  }
+
+  .see-btn:hover {
+    background-color: transparent;
+    color: var(--primary-font);
+    transition: all 0.3s ease;
+  }
+
+  .more-btn:hover {
+    background-color: transparent;
+    color: var(--primary-font);
+  }
+
+  .mail:hover,
+  .phone:hover,
+  .address:hover {
+    color: var(--secondary-font);
+  }
+
+  .footer-container-bottom a:hover {
+    color: var(--primary-font);
+  }
+}
+
+/*media query for 1366px starts here*/
+@media only screen and (max-width: 1366px) {
+  /* Skills section styles for responsiveness */
+  .skills-container ul {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+/*media query for 1280px starts here*/
+@media only screen and (max-width: 1280px) {
+  .experience-list {
+    padding: 0 5rem;
+  }
+}
+
+/*media query for 995px*/
 @media only screen and (max-width: 995px) {
+  /* portfolio section styles for responsiveness */
+  .portfolio-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  /* experience section styles for responsiveness */
+  .experince-container {
+    padding: 0 5rem;
+  }
+
+  .experience-list {
+    padding: 0 2.5rem;
+  }
+}
+
+/*media query for 768px starts here*/
+@media only screen and (max-width: 768px) {
+  /* header section styles for responsiveness */
+  .header {
+    padding: 20px 1.5rem;
+  }
+  .header .active-nav {
+    transform: translateY(0);
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 25px;
+    right: 5%;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navbar {
+    width: 100%;
+    padding: 20px 2%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary-font);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar > ul {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* Banner section styles for responsiveness */
+  .banner-section,
+  .about-container {
+    padding: 0 1.5rem;
+  }
+
+  .banner-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .banner-left {
+    margin: 20px 0;
+  }
+
+  .banner-right {
+    width: 50%;
+    position: static;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  /* Portfolio section styles for responsiveness */
+  .portfolio-container {
+    padding: 0 1.5rem;
+  }
+
+  /* Experience section styles for responsiveness */
+  .experince-container {
+    padding: 0 1.5rem;
+  }
+
+  .experience-list {
+    padding: 0;
+  }
+
+  .experience-inner .info {
+    text-align: left;
+  }
+
+  .experince-container .heading {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Footer section styles for responsiveness */
+  .footer {
+    padding: 20px 0;
+  }
+
+  .footer-container-top {
+    margin: 10px;
+  }
 }
