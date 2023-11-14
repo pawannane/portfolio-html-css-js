@@ -462,7 +462,7 @@ body {
   left: 1.5%;
   text-align: center;
   transition: transform 0.3s ease;
-  transform: translateY(200%);
+  transform: translateY(230%);
 }
 
 .portfolio-list img {
@@ -885,6 +885,11 @@ body {
     padding: 0 1.5rem;
   }
 
+  .portfolio-list img {
+    height: 100%;
+    object-fit: contain;
+  }
+
   /* Experience section styles for responsiveness */
   .experince-container {
     padding: 0 1.5rem;
@@ -916,11 +921,17 @@ body {
 
   /* Footer section styles for responsiveness */
   .footer {
-    padding: 20px 0;
+    padding: 40px 0;
   }
 
   .footer-container-top {
     margin: 10px;
+  }
+
+  .mail,
+  .phone,
+  .address > a {
+    padding: 20px 3.5rem;
   }
 }
 
@@ -928,6 +939,10 @@ body {
 @media only screen and (max-width: 560px) {
   html {
     font-size: 70%;
+  }
+
+  .footer .heading {
+    white-space: nowrap;
   }
 }
 
