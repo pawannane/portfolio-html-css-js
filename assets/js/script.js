@@ -29,7 +29,6 @@ function handleScroll() {
   var scrollPosition = window.scrollY || window.pageYOffset;
 
   if (scrollPosition >= specificPixel) {
-    console.log('Scrolled to the specific pixel!');
     header.classList.add("fixed-header");
   } else {
     header.classList.remove("fixed-header");

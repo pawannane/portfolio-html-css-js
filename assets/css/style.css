@@ -222,7 +222,7 @@ body {
   width: 100%;
   padding: 20px 5rem;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -322,14 +322,13 @@ body {
   color: var(--primary-font);
 }
 
-.contact-btn {
+.download-btn {
   padding: 10px 1rem;
   border: 2px solid var(--primary-font);
   border-radius: 6px;
   margin-top: 20px;
   color: var(--primary-font);
   font-size: 1.5rem;
-  text-transform: capitalize;
   transition: all 0.3s ease;
 }
 
@@ -382,7 +381,7 @@ body {
 .skills-section {
   background-color: var(--secondary-bg);
   color: var(--secondary-font);
-  padding: 80px 10rem;
+  padding: 80px 10%;
 }
 
 .skills-container h2 {
@@ -445,7 +444,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  cursor: pointer;
 }
 
 .portfolio-list li {
@@ -453,18 +451,22 @@ body {
   overflow: hidden;
 }
 
+.portfolio-list li > a {
+  width: 100%;
+}
+
 .project {
   position: absolute;
   z-index: 1;
-  top: 40%;
-  left: 5%;
+  top: 50%;
+  left: 1.5%;
   text-align: center;
   transition: transform 0.3s ease;
-  transform: translateY(325%);
+  transform: translateY(200%);
 }
 
 .portfolio-list img {
-  height: 100%;
+  height: 50vh;
   border-radius: 8px;
   object-fit: cover;
   transition: opacity 0.3s ease;
@@ -567,7 +569,7 @@ body {
 }
 
 .year {
-  padding: 5px 0.5rem;
+  padding: 5px 1.5%;
   position: absolute;
   z-index: 2;
   top: 0;
@@ -583,7 +585,7 @@ body {
   position: absolute;
   z-index: -1;
   background-color: var(--card);
-  transform: translateX(-5%) rotate(45deg);
+  transform: translateX(10%) rotate(45deg);
 }
 
 .experience-inner .info {
@@ -630,7 +632,7 @@ body {
 
 .mail,
 .phone,
-.address {
+.address > a {
   padding: 20px 6.5rem;
   border-radius: 6px;
   display: flex;
@@ -639,7 +641,6 @@ body {
   background-color: var(--black);
   font-size: 1.5rem;
   transition: color 0.3s ease;
-  cursor: pointer;
 }
 
 .mail::before {
@@ -650,13 +651,13 @@ body {
   content: "\f095";
 }
 
-.address::before {
+.address > a::before {
   content: "\f3c5";
 }
 
 .mail::before,
 .phone::before,
-.address::before {
+.address > a::before {
   margin-right: 1rem;
   color: var(--secondary-font);
   font-family: "FontAwesome";
@@ -729,7 +730,7 @@ body {
     color: var(--primary-font);
   }
 
-  .contact-btn:hover {
+  .download-btn:hover {
     background-color: var(--primary-font);
     color: var(--secondary-font);
   }
@@ -739,11 +740,11 @@ body {
   }
 
   .portfolio-list li:hover img {
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
   .portfolio-list li:hover .project {
-    transform: translateY(0);
+    transform: translateY(-50%);
   }
 
   .see-btn:hover {
@@ -759,7 +760,7 @@ body {
 
   .mail:hover,
   .phone:hover,
-  .address:hover {
+  .address > a:hover {
     color: var(--secondary-font);
   }
 
@@ -804,6 +805,11 @@ body {
 
 /*media query for 768px starts here*/
 @media only screen and (max-width: 768px) {
+  /* responsive font size */
+  html {
+    font-size: 75%;
+  }
+
   /* header section styles for responsiveness */
   .header {
     padding: 20px 1.5rem;
@@ -856,15 +862,13 @@ body {
 
   .banner-container {
     flex-direction: column-reverse;
+    justify-content: center;
+    gap: 20px;
     text-align: center;
   }
 
-  .banner-left {
-    margin: 20px 0;
-  }
-
   .banner-right {
-    width: 50%;
+    width: 55%;
     position: static;
   }
 
@@ -887,7 +891,7 @@ body {
   }
 
   .experience-list {
-    padding: 0;
+    padding: 0 15%;
   }
 
   .experience-inner .info {
@@ -895,8 +899,19 @@ body {
   }
 
   .experince-container .heading {
+    top: -25px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .year {
+    left: -60px;
+  }
+
+  .year::after {
+    width: 18px;
+    height: 18px;
+    transform: translate(-5%, -2px) rotate(45deg);
   }
 
   /* Footer section styles for responsiveness */
@@ -906,5 +921,19 @@ body {
 
   .footer-container-top {
     margin: 10px;
+  }
+}
+
+/*media query for 560px starts here*/
+@media only screen and (max-width: 560px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+/*media query for 480px starts here*/
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 68%;
   }
 }
