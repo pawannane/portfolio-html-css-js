@@ -951,4 +951,14 @@ body {
   html {
     font-size: 68%;
   }
+
+  .experience-list {
+    padding: 0 20%;
+  }
+
+  .year::after {
+    width: 16px;
+    height: 16px;
+    transform: translate(-20%, -2px) rotate(45deg);
+}
 }
