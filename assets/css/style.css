@@ -333,14 +333,15 @@ body {
 }
 
 .banner-right {
-  width: 35%;
+  width: 40%;
   position: absolute;
   right: 10%;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.banner-right > img {
-  width: 100%;
+.banner-right image {
+  width: 75%;
   object-fit: cover;
 }
 /**********************************************
@@ -870,6 +871,7 @@ body {
   .banner-right {
     width: 55%;
     position: static;
+    transform: translateY(0);
   }
 
   .heading {
