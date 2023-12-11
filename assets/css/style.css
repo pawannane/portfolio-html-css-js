@@ -302,6 +302,7 @@ body {
   position: relative;
   background-color: var(--primary-bg);
   box-shadow: 0 4px 4px var(--black);
+  overflow: hidden;
 }
 
 .banner-container {
